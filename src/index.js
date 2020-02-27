@@ -1,5 +1,7 @@
 import './reset.scss'
 
+import { iframeHandler } from './utils/iframeHandler'
+
 import {
   Camera,
   Scene,
@@ -151,3 +153,5 @@ div.innerHTML += `
   </p>
 </div>`
 document.body.appendChild(div)
+
+iframeHandler()

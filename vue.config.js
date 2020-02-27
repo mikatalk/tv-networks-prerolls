@@ -1,6 +1,6 @@
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' 
-    ? '//mikatalk.github.io/tv-networks-prerolls/'
+    ? '/article-assets/replicating-network-prerolls-animations-with-fragment-shaders/dist/'
     : `/`,
   devServer: {
     hot: false,

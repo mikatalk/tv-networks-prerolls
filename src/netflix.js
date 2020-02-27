@@ -1,5 +1,7 @@
 import './reset.scss'
 
+import { iframeHandler } from './utils/iframeHandler'
+
 import {
   Camera,
   Scene,
@@ -318,3 +320,5 @@ class App {
 }
 
 new App(document.getElementById('app'))
+
+iframeHandler()
