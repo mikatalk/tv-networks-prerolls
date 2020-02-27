@@ -3,13 +3,12 @@
  */
 
 const handleResize = () => {
-  const container = document.querySelector('#app')
-  const {width, height} = container.getBoundingClientRect()
+  const canvas = document.querySelector('canvas')
   try {
     window.parent.postMessage({
       'event-type': 'iframe-content-resize',
-      width, 
-      height
+      width: canvas.clientWidth, 
+      height: canvas.clientWidth,
     },
     document.location.origin)
   } catch (e) {
