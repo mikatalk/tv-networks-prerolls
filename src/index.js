@@ -97,6 +97,9 @@ class App {
     this.onWindowResize()
     window.addEventListener('resize', this.onWindowResize, false)
     document.addEventListener('mousemove', this.onMouseMove, false)
+
+    document.body.classList.add('intro')
+
   }
   
   onMouseMove = event => {
@@ -105,8 +108,7 @@ class App {
   }
 
   onWindowResize = () => {
-    const size = Math.min(window.innerWidth, window.innerHeight)
-    this.renderer.setSize(size, size)
+    this.renderer.setSize(window.innerWidth, window.innerHeight)
     this.uniforms.u_resolution.value.x = this.renderer.domElement.width
     this.uniforms.u_resolution.value.y = this.renderer.domElement.height
   }
@@ -128,7 +130,7 @@ const div = document.createElement('div')
 div.innerHTML += `
 <div class="info">
   <p>
-    In this project i tried replicating network pre-roll 
+    In this project <a href="https://twitter.com/michael_iriarte" style="padding:0;">I</a> tried replicating network pre-roll 
     animations as a mean to practice and get better at coding fragment shaders.
     <br/>
     <br/>
@@ -139,10 +141,13 @@ div.innerHTML += `
     <a href="https://mikatalk.github.io/tv-networks-prerolls/hbo.html">hbo</a>
     <br/>
     <br/>
-    Keep in mind these animations are not videos and are generated in real time in WebGL
+    Keep in mind these animations are not videos and are generated in real time with WebGL in your GPU.
     <br/>
     <br/>
     <a href="https://tips4devs.com">Stay tuned for a tutorial on tips4Devs.com</a>
+    <br/>
+    <br/>
+    Oh and if you're wondering about the background choice, it was a cute bug so i ended up keeping it.
   </p>
 </div>`
 document.body.appendChild(div)
