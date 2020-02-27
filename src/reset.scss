@@ -1,0 +1,174 @@
+$color-primary: #de1f00;
+$color-hulu: #66fa91;
+$color-hbo: #cccccc;
+$color-background: #d3d3d3;
+
+body {
+  overflow: hidden;
+  position: relative;
+  min-width: 100vw;
+  min-height: 100vh;
+  background: black;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  canvas {
+    position: absolute;
+    right: auto;
+    top: 50%;
+    left: 50%;
+    bottom: auto;
+    width: 100vmin;
+    height: 100vmin;
+    transform: translate(-50%, -50%);
+  }
+  .play-btn {
+    cursor: pointer;
+    position: fixed;
+    bottom: 0.65rem;
+    left: auto;
+    right: 0.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 3rem;
+    min-height: 3rem;
+    background-color: $color-primary;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+    color:#ffffff;
+    font-size: 1rem;
+    line-height: 1rem;
+    text-align: center;
+    border: none;
+    opacity: 0.7;
+    outline: none;
+    box-shadow: 0px 0px 2px rgba(black,0.9);
+    &:active,
+    &:hover {
+      outline: none;
+      background-color: lighten($color-primary, 10%);
+    }
+  }
+  .label {
+    margin: 0;
+    width: 2rem;
+    position: fixed;
+    bottom: 1.6rem;
+    left: 0.5rem;
+    right: auto;
+    color: white;
+    text-align: right;
+    text-shadow: 0px 0px 1px rgba(black,0.4);
+  }
+  .slider {
+    margin: 0 4.5rem 0 3.5rem;
+    width: calc(100vw - 8rem);
+    // max-width: 400px;
+    position: fixed;
+    bottom: 2rem;
+    left: 0;
+    right: 0;
+    -webkit-appearance: none;
+    height: 0.25rem;
+    background: $color-background;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+    box-shadow: 0px 0px 1px rgba(black,0.9);
+
+    &:hover {
+      opacity: 1;
+    }
+
+    &::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 3rem;
+      height: 3rem;
+      background: $color-primary;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0px 0px 2px rgba(black,0.9);
+    }
+
+    &::-moz-range-thumb {
+      width: 3rem;
+      height: 3rem;
+      background: $color-primary;
+      cursor: pointer;
+      border-radius: 50%;
+      box-shadow: 0px 0px 2px rgba(black,0.9);
+    }
+  }
+
+  .info {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: +10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    p {
+      font-family: monospace;
+      color: white;
+      background: rgba(0,0,0,0.5);
+      max-width: 450px;
+      width: 75%;
+      margin: 0 auto;
+      text-align: center;
+      padding: 1rem;
+      border-radius: 0.2rem;
+      a,
+      a:visited,
+      a:hover {
+        color: white;
+        padding: 0.2rem 1rem;
+        display: inline-flex;
+      }
+    }
+  }
+  
+  &.preroll-hulu {
+    .play-btn {
+      color: black;
+      background-color: $color-hulu;
+      &:hover {
+        background-color: lighten($color-hulu, 10%);
+      }
+    }
+    .slider {
+      &::-webkit-slider-thumb {
+        background: $color-hulu;
+      }
+      &::-moz-range-thumb {
+        background: $color-hulu;
+      }
+    }
+  }
+  &.preroll-hbo {
+    .play-btn {
+      color: black;
+      background-color: $color-hbo;
+      &:hover {
+        background-color: lighten($color-hbo, 10%);
+      }
+    }
+    .slider {
+      &::-webkit-slider-thumb {
+        background: $color-hbo;
+      }
+      &::-moz-range-thumb {
+        background: $color-hbo;
+      }
+    }
+  }
+}
