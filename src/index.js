@@ -16,11 +16,6 @@ void main() {
 }`
 
 const fragmentShader = `
-
-#ifdef GL_ES
-precision mediump float;
-#endif
-
 #define PI 3.14159265359
 
 uniform vec2 u_resolution;
@@ -142,6 +137,12 @@ div.innerHTML += `
     <a href="https://mikatalk.github.io/tv-networks-prerolls/hulu.html">hulu</a>
     |
     <a href="https://mikatalk.github.io/tv-networks-prerolls/hbo.html">hbo</a>
+    <br/>
+    <br/>
+    Keep in mind these animations are not videos and are generated in real time in WebGL
+    <br/>
+    <br/>
+    <a href="https://tips4devs.com">Stay tuned for a tutorial on tips4Devs.com</a>
   </p>
 </div>`
 document.body.appendChild(div)
