@@ -276,7 +276,7 @@ class App {
   }
 
   onWindowResize = () => {
-    const size = Math.min(window.innerWidth, window.innerHeight)
+    const size = window.innerWidth
     this.renderer.setSize(size, size)
     this.uniforms.u_resolution.value.x = this.renderer.domElement.width
     this.uniforms.u_resolution.value.y = this.renderer.domElement.height
