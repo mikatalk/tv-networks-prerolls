@@ -203,13 +203,13 @@ void main() {
     float animationOpacity = mapTime(1.0, 3.0, u_time);
     float hbo = 0.0;
     // H
-    hbo = max(hbo, drawLetterH(st + vec2(0.4, 0.0)) * animationOpacity);
+    hbo = max(hbo, drawLetterH(st + vec2(0.4, 0.0)));
     
     // B
-    hbo = max(hbo, drawLetterB(st + vec2(0.0, 0.0)) * animationOpacity);
+    hbo = max(hbo, drawLetterB(st + vec2(0.0, 0.0)));
     
     // 0
-    hbo = max(hbo, drawLetterO(st + vec2(-0.69, 0.0)) * animationOpacity);
+    hbo = max(hbo, drawLetterO(st + vec2(-0.69, 0.0)));
 
     // base background
     color = vec3(background * darkGrey);
@@ -217,17 +217,17 @@ void main() {
 
     // add back light
     float light = makeBackWhiteLight(st);
-    color = mix(color, vec3(light), light * (mapTime(2.0, 3.0, u_time) - mapTime(4.0, 5.0, u_time)));    
+    color = mix(color, vec3(light), light * (mapTime(2.3, 3.3, u_time) - mapTime(5.0, 8.0, u_time)));    
 
     // save a copy of hbo shape to use it as mask later
     float hboMask = hbo;
 
     // increase noise  on hbo the fade away
-    hbo = mix(hbo, 1.0-noise, hbo * (mapTime(2.5, 4.5, u_time) - mapTime(6.5, 7.5, u_time)));
+    hbo = mix(hbo, 1.0-noise, hbo * (1.0 - mapTime(3.5, 6.5, u_time)));
     // stamp hbo over the bg and light halo
-    color = mix(color, vec3(hbo), smoothstep(0.4, 0.5, hbo));
-
-    // make grey less noisy as time goes
+    color = mix(color, vec3(hbo), hboMask * ((mapTime(2.5, 4.5, u_time) - mapTime(6.5, 8.5, u_time))));
+    
+    // add noise to back but make it less noisy as time goes
     grey = mix(vec3((1.0-hboMask) * noise), grey, mapTime(2.5, 4.5, u_time));
     
     color *= mix(vec3(1.0), grey, animationOpacity);
